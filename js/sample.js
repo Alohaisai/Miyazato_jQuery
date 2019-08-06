@@ -32,4 +32,10 @@ $('.js-toggle').on('click',function(){
   $(this).siblings().slideToggle();
 });
 
+
+// ハンバーガーメニュー
+$('.js-hamburger').on('click', function() {
+  $(this).toggleClass('on');
+});
+
 });

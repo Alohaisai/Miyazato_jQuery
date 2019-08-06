@@ -70,4 +70,37 @@ $('.tab-nav a').on('click', function() {
   return false;
 });
 
+// スライダー
+var slideWidth = $('.slide').outerWidth();
+  var slideNum = $('.slide').length;
+  var slideWrapperWidth = slideWidth * slideNum;
+  var currentSlide = 0;
+  $('.slide-wrapper').css('width', slideWrapperWidth);
+
+  //次へ
+  $('.next-slider').on('click', function() {
+    //最後のスライドだった場合
+    if(currentSlide >= slideNum -1){
+      return false;
+    }
+    currentSlide++;
+    slide();
+  });
+
+  //前へ
+  $('.prev-slider').on('click', function() {
+    //最初のスライドだった場合
+    if(currentSlide <= 0){
+      return false;
+    }
+    currentSlide--;
+    slide();
+  });
+
+  function slide() {
+    $('.slide-wrapper').stop().animate({
+      left: currentSlide * -slideWidth
+    });
+  }
+
 });
